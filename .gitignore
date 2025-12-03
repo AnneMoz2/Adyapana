@@ -37,9 +37,6 @@ yarn-error.log*
 next-env.d.ts
 
 # Google service account keys (NEVER commit these!)
-*.json
-!package.json
-!package-lock.json
-!tsconfig.json
 service-account*.json
 credentials*.json
+google-credentials.json

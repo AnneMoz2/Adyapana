@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "title": "Adyapana - Education for All",
+    "description": "Free educational resources for O Level and A Level students affected by floods in Sri Lanka"
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "oLevel": "O Level",
+    "aLevel": "A Level",
+    "upload": "Upload",
+    "contribute": "Contribute"
+  },
+  "hero": {
+    "title": "Lift Every Mind, Light Every Future",
+    "subtitle": "Free educational content for O Level and A Level students. Access notes, watch video explanations, and keep learning.",
+    "exploreButton": "Explore Courses",
+    "uploadButton": "Upload Content"
+  },
+  "features": {
+    "title": "What We Offer",
+    "subtitle": "Quality educational resources to help students continue their studies",
+    "videoLessons": {
+      "title": "Video Lessons",
+      "description": "Watch detailed video explanations from experienced teachers covering all subjects"
+    },
+    "downloadableNotes": {
+      "title": "Downloadable Notes",
+      "description": "Access well-structured notes and past papers for effective revision"
+    },
+    "multiLanguage": {
+      "title": "Multi-Language",
+      "description": "Learn in your preferred language - Sinhala, English, or Tamil"
+    },
+    "freeAccess": {
+      "title": "Free Access",
+      "description": "All content is completely free for students who need it"
+    }
+  },
+  "examLevels": {
+    "title": "Choose Your Exam Level",
+    "subtitle": "Select your examination level to find relevant courses and materials",
+    "oLevel": {
+      "title": "O Level (Ordinary Level)",
+      "description": "Comprehensive resources for Grade 10-11 students preparing for O Level examinations",
+      "subjects": "Mathematics, Science, English, History, and more"
+    },
+    "aLevel": {
+      "title": "A Level (Advanced Level)",
+      "description": "In-depth study materials for Grade 12-13 students preparing for A Level examinations",
+      "subjects": "Science Stream, Commerce, Art Stream"
+    },
+    "viewCourses": "View Courses"
+  },
+  "subjects": {
+    "title": "Popular Subjects",
+    "subtitle": "Browse courses by subject",
+    "mathematics": "Mathematics",
+    "science": "Science",
+    "english": "English",
+    "sinhala": "Sinhala",
+    "tamil": "Tamil",
+    "history": "History",
+    "commerceAccounting": "Commerce & Accounting",
+    "ict": "ICT",
+    "civics": "Civics",
+    "drama": "Drama",
+    "easternMusic": "Eastern Music",
+    "westernMusic": "Western Music",
+    "health": "Health",
+    "religion": "Religion",
+    "other": "Other",
+    "scienceStream": "Science Stream",
+    "commerce": "Commerce",
+    "artStream": "Art Stream"
+  },
+  "courses": {
+    "title": "Courses",
+    "filterBy": "Filter by",
+    "allLevels": "All Levels",
+    "allSubjects": "All Subjects",
+    "searchPlaceholder": "Search courses...",
+    "videos": "videos",
+    "notes": "notes",
+    "viewCourse": "View Course",
+    "noCourses": "No courses found matching your criteria"
+  },
+  "courseDetail": {
+    "videos": "Video Lessons",
+    "notes": "Course Notes",
+    "duration": "Duration",
+    "downloadPdf": "Download PDF",
+    "watchVideo": "Watch Video",
+    "relatedCourses": "Related Courses",
+    "backToCourses": "Back to Courses"
+  },
+  "upload": {
+    "title": "Upload Educational Content",
+    "subtitle": "Share your knowledge with students across Sri Lanka",
+    "form": {
+      "title": "Content Title",
+      "titlePlaceholder": "Enter a descriptive title",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe your content...",
+      "examLevel": "Exam Level",
+      "selectLevel": "Select exam level",
+      "subject": "Subject",
+      "selectSubject": "Select subject",
+      "contentType": "Content Type",
+      "video": "Video",
+      "notes": "Notes/PDF",
+      "uploadFile": "Upload File",
+      "dragDrop": "Drag and drop your file here, or click to browse",
+      "videoFormats": "Supported: MP4, WebM (Max 500MB)",
+      "noteFormats": "Supported: PDF, DOC, DOCX (Max 50MB)",
+      "language": "Content Language",
+      "submit": "Upload Content",
+      "uploading": "Uploading..."
+    },
+    "success": "Content uploaded successfully!",
+    "error": "Failed to upload content. Please try again."
+  },
+  "contribute": {
+    "title": "Help Us Help Students",
+    "subtitle": "Join our effort to provide notes and study materials to students in need",
+    "notes": {
+      "title": "Share Your Notes",
+      "description": "If you have study materials, past papers, or notes that could help students, please upload them.",
+      "button": "Upload Notes"
+    },
+    "development": {
+      "title": "Help Build This Platform",
+      "description": "Are you a developer or designer? Help us improve this website.",
+      "github": "View on GitHub",
+      "repoUrl": "https://github.com/AnneMoz2/Adyapana"
+    },
+    "spread": {
+      "title": "Spread the Word",
+      "description": "Share this platform with students and teachers who might benefit from it."
+    }
+  },
+  "footer": {
+    "tagline": "Free education for students in need",
+    "quickLinks": "Quick Links",
+    "examLevels": "Exam Levels",
+    "copyright": "© 2024 Adyapana. Made with ❤️ for students."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "viewAll": "View All",
+    "learnMore": "Learn More"
+  }
+}
