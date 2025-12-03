@@ -2,9 +2,9 @@ import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 
 // Import messages statically for Webpack
-import enMessages from './messages/en.json';
-import siMessages from './messages/si.json';
-import taMessages from './messages/ta.json';
+import enMessages from '@/messages/en.json';
+import siMessages from '@/messages/si.json';
+import taMessages from '@/messages/ta.json';
 
 export const locales = ['en', 'si', 'ta'] as const;
 export type Locale = (typeof locales)[number];
