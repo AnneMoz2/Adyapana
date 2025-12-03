@@ -1,6 +1,11 @@
 import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 
+// Import messages statically for Webpack
+import enMessages from './messages/en.json';
+import siMessages from './messages/si.json';
+import taMessages from './messages/ta.json';
+
 export const locales = ['en', 'si', 'ta'] as const;
 export type Locale = (typeof locales)[number];
 
@@ -11,6 +16,12 @@ export const localeNames: Record<Locale, string> = {
 };
 
 export const defaultLocale: Locale = 'en';
+
+const messages: Record<Locale, typeof enMessages> = {
+  en: enMessages,
+  si: siMessages,
+  ta: taMessages,
+};
 
 export default getRequestConfig(async ({requestLocale}) => {
   // Get the locale from the request
@@ -23,6 +34,6 @@ export default getRequestConfig(async ({requestLocale}) => {
 
   return {
     locale,
-    messages: (await import(`./messages/${locale}.json`)).default
+    messages: messages[locale as Locale]
   };
 });
