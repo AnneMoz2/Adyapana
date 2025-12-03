@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { GraduationCap, Github, Heart } from 'lucide-react';
+import { Github, Heart } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -16,12 +16,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand column */}
           <div>
-            <Link href={`/${locale}`} className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
+            <Link href={`/${locale}`} className="flex items-center mb-4">
               <div className="flex flex-col">
-                <span className="text-lg font-display font-bold">Adyapana</span>
+                <span className="text-xl font-bold text-primary-400">Adyapana</span>
                 <span className="text-xs text-dark-400">අධ්‍යාපන • அத்யாபன</span>
               </div>
             </Link>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Menu, X, BookOpen, GraduationCap, Upload, Home, Heart } from 'lucide-react';
+import { Menu, X, BookOpen, Upload, Home, Heart } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navigation() {
@@ -23,8 +23,8 @@ export default function Navigation() {
   const navLinks = [
     { href: `/${locale}`, label: t('home'), icon: Home },
     { href: `/${locale}/courses`, label: t('courses'), icon: BookOpen },
-    { href: `/${locale}/courses?level=o-level`, label: t('oLevel'), icon: GraduationCap },
-    { href: `/${locale}/courses?level=a-level`, label: t('aLevel'), icon: GraduationCap },
+    { href: `/${locale}/courses?level=o-level`, label: t('oLevel'), icon: BookOpen },
+    { href: `/${locale}/courses?level=a-level`, label: t('aLevel'), icon: BookOpen },
     { href: `/${locale}/upload`, label: t('upload'), icon: Upload },
     { href: `/${locale}/contribute`, label: t('contribute'), icon: Heart },
   ];
@@ -40,12 +40,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:shadow-xl group-hover:shadow-primary-500/40 transition-all duration-300">
-              <GraduationCap className="w-7 h-7 text-white" />
-            </div>
+          <Link href={`/${locale}`} className="flex items-center group">
             <div className="flex flex-col">
-              <span className={`text-xl font-display font-bold ${isScrolled ? 'text-dark-950' : 'text-dark-950'}`}>
+              <span className={`text-2xl font-bold ${isScrolled ? 'text-primary-600' : 'text-primary-600'}`}>
                 Adyapana
               </span>
               <span className={`text-xs ${isScrolled ? 'text-dark-500' : 'text-dark-400'}`}>

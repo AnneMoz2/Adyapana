@@ -1,9 +1,34 @@
+# Dependencies
 node_modules
+npm-debug.log
+
+# Build outputs
 .next
+out
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
 .git
 .gitignore
-*.md
-.env*.local
-Dockerfile
-.dockerignore
 
+# Misc
+README.md
+SETUP_GUIDE.md
+DEPLOY_GOOGLE_CLOUD.md
+*.md

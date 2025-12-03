@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Source Sans 3', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   
-  --gradient-primary: linear-gradient(135deg, #ec761a 0%, #dd5c10 50%, #b74410 100%);
-  --gradient-secondary: linear-gradient(135deg, #22c566 0%, #16a34f 50%, #158041 100%);
-  --gradient-hero: linear-gradient(135deg, #1e222a 0%, #343a46 50%, #444e61 100%);
-  --gradient-accent: linear-gradient(135deg, #d946ef 0%, #c026d3 50%, #a21caf 100%);
+  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+  --gradient-secondary: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%);
+  --gradient-hero: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+  --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
 }
 
 * {
@@ -23,34 +23,38 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: 'Montserrat', sans-serif;
   background-color: #f8fafc;
-  color: #1e222a;
+  color: #1e293b;
   min-height: 100vh;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* Sinhala font support */
 html[lang="si"] body,
 html[lang="si"] * {
-  font-family: 'Noto Sans Sinhala', var(--font-body), sans-serif;
+  font-family: 'Noto Sans Sinhala', 'Montserrat', sans-serif;
 }
 
 /* Tamil font support */
 html[lang="ta"] body,
 html[lang="ta"] * {
-  font-family: 'Noto Sans Tamil', var(--font-body), sans-serif;
+  font-family: 'Noto Sans Tamil', 'Montserrat', sans-serif;
 }
 
 /* Display font for headings */
 h1, h2, h3, .font-display {
-  font-family: var(--font-display);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 html[lang="si"] h1,
 html[lang="si"] h2,
 html[lang="si"] h3,
 html[lang="si"] .font-display {
-  font-family: 'Noto Sans Sinhala', serif;
+  font-family: 'Noto Sans Sinhala', 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
@@ -58,13 +62,13 @@ html[lang="ta"] h1,
 html[lang="ta"] h2,
 html[lang="ta"] h3,
 html[lang="ta"] .font-display {
-  font-family: 'Noto Sans Tamil', serif;
+  font-family: 'Noto Sans Tamil', 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/35 hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:-translate-y-0.5;
   }
   
   .btn-secondary {
@@ -72,11 +76,11 @@ html[lang="ta"] .font-display {
   }
   
   .btn-accent {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-xl shadow-lg shadow-secondary-500/30 hover:shadow-xl hover:shadow-secondary-500/40 transition-all duration-300;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-xl shadow-lg shadow-secondary-500/25 hover:shadow-xl hover:shadow-secondary-500/35 transition-all duration-300;
   }
   
   .card {
-    @apply bg-white rounded-2xl shadow-lg shadow-dark-200/20 border border-dark-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-dark-300/20 hover:-translate-y-1;
+    @apply bg-white rounded-2xl shadow-lg shadow-primary-100/50 border border-primary-100/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary-200/50 hover:-translate-y-1;
   }
   
   .card-gradient {
@@ -85,7 +89,7 @@ html[lang="ta"] .font-display {
   
   .card-gradient::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-secondary-500/10 opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/5 opacity-0 transition-opacity duration-300;
   }
   
   .card-gradient:hover::before {
@@ -93,7 +97,7 @@ html[lang="ta"] .font-display {
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-display font-bold text-dark-950 mb-4;
+    @apply text-3xl md:text-4xl font-bold text-dark-800 mb-4;
   }
   
   .section-subtitle {
@@ -101,11 +105,11 @@ html[lang="ta"] .font-display {
   }
   
   .input-field {
-    @apply w-full px-4 py-3 bg-white border-2 border-dark-200 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200;
+    @apply w-full px-4 py-3 bg-white border-2 border-primary-100 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200;
   }
   
   .select-field {
-    @apply w-full px-4 py-3 bg-white border-2 border-dark-200 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 appearance-none cursor-pointer;
+    @apply w-full px-4 py-3 bg-white border-2 border-primary-100 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 appearance-none cursor-pointer;
   }
   
   .badge {
@@ -125,24 +129,24 @@ html[lang="ta"] .font-display {
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Light Blue Theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f0f9ff;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #ec761a, #dd5c10);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #dd5c10, #b74410);
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
 }
 
 /* Animation utilities */
@@ -152,22 +156,23 @@ html[lang="ta"] .font-display {
 .animate-delay-400 { animation-delay: 400ms; }
 .animate-delay-500 { animation-delay: 500ms; }
 
-/* Gradient text */
+/* Gradient text - Light Blue */
 .gradient-text {
   @apply bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 bg-clip-text text-transparent;
 }
 
-/* Hero background pattern */
+/* Hero background pattern - Light Blue Theme */
 .hero-pattern {
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(236, 118, 26, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(34, 197, 102, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(217, 70, 239, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
+  background-color: #f8fafc;
 }
 
 /* Glass effect */
 .glass {
-  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  @apply bg-white/90 backdrop-blur-lg border border-primary-100/50;
 }
 
 /* Shimmer effect for loading states */
@@ -177,7 +182,7 @@ html[lang="ta"] .font-display {
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, #f0f9ff 25%, #e0f2fe 50%, #f0f9ff 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -187,3 +192,8 @@ html[lang="ta"] .font-display {
   @apply outline-none ring-2 ring-primary-400 ring-offset-2;
 }
 
+/* Selection color */
+::selection {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: #0369a1;
+}

@@ -1,5 +1,7 @@
 import { google } from 'googleapis';
 import { Readable } from 'stream';
+import path from 'path';
+import fs from 'fs';
 
 // Folder IDs for each subject - these come from environment variables
 const FOLDER_IDS: Record<string, Record<string, string>> = {
@@ -30,13 +32,44 @@ const FOLDER_IDS: Record<string, Record<string, string>> = {
 
 // Initialize Google Drive API with service account
 function getDriveClient() {
-  const auth = new google.auth.GoogleAuth({
-    credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-    },
-    scopes: ['https://www.googleapis.com/auth/drive.file'],
-  });
+  let auth;
+
+  // Option 1: Use JSON key file (easier!)
+  const keyFilePath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (keyFilePath && fs.existsSync(keyFilePath)) {
+    console.log('🔑 Using JSON key file:', keyFilePath);
+    auth = new google.auth.GoogleAuth({
+      keyFile: keyFilePath,
+      scopes: ['https://www.googleapis.com/auth/drive'],
+    });
+  } 
+  // Option 2: Use environment variables
+  else {
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    
+    if (!privateKey) {
+      throw new Error('No Google credentials found. Set GOOGLE_APPLICATION_CREDENTIALS or GOOGLE_PRIVATE_KEY');
+    }
+    
+    if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+      throw new Error('GOOGLE_SERVICE_ACCOUNT_EMAIL is not set');
+    }
+
+    console.log('🔑 Using env credentials for:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL);
+
+    // Handle different formats of private key
+    const formattedKey = privateKey.includes('\\n') 
+      ? privateKey.replace(/\\n/g, '\n')
+      : privateKey;
+
+    auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: formattedKey,
+      },
+      scopes: ['https://www.googleapis.com/auth/drive'],
+    });
+  }
 
   return google.drive({ version: 'v3', auth });
 }
@@ -52,6 +85,14 @@ export async function uploadToDrive(
   
   // Get the folder ID for this level and subject
   const folderId = FOLDER_IDS[level]?.[subject];
+  
+  // Debug logging
+  console.log('📁 Upload attempt:', {
+    level,
+    subject,
+    folderId: folderId || 'NOT SET',
+    allFolderIds: FOLDER_IDS[level],
+  });
   
   if (!folderId) {
     throw new Error(`No folder configured for ${level}/${subject}. Please set up environment variables.`);
@@ -73,6 +114,7 @@ export async function uploadToDrive(
       body: stream,
     },
     fields: 'id, webViewLink',
+    supportsAllDrives: true,
   });
 
   // Note: Files inherit sharing permissions from the parent folder
