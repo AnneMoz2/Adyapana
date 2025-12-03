@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  
+  --gradient-primary: linear-gradient(135deg, #ec761a 0%, #dd5c10 50%, #b74410 100%);
+  --gradient-secondary: linear-gradient(135deg, #22c566 0%, #16a34f 50%, #158041 100%);
+  --gradient-hero: linear-gradient(135deg, #1e222a 0%, #343a46 50%, #444e61 100%);
+  --gradient-accent: linear-gradient(135deg, #d946ef 0%, #c026d3 50%, #a21caf 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #f8fafc;
+  color: #1e222a;
+  min-height: 100vh;
+}
+
+/* Sinhala font support */
+html[lang="si"] body,
+html[lang="si"] * {
+  font-family: 'Noto Sans Sinhala', var(--font-body), sans-serif;
+}
+
+/* Tamil font support */
+html[lang="ta"] body,
+html[lang="ta"] * {
+  font-family: 'Noto Sans Tamil', var(--font-body), sans-serif;
+}
+
+/* Display font for headings */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+html[lang="si"] h1,
+html[lang="si"] h2,
+html[lang="si"] h3,
+html[lang="si"] .font-display {
+  font-family: 'Noto Sans Sinhala', serif;
+  font-weight: 700;
+}
+
+html[lang="ta"] h1,
+html[lang="ta"] h2,
+html[lang="ta"] h3,
+html[lang="ta"] .font-display {
+  font-family: 'Noto Sans Tamil', serif;
+  font-weight: 700;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:from-primary-600 hover:to-primary-700 transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50 transition-all duration-300;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-xl shadow-lg shadow-secondary-500/30 hover:shadow-xl hover:shadow-secondary-500/40 transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg shadow-dark-200/20 border border-dark-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-dark-300/20 hover:-translate-y-1;
+  }
+  
+  .card-gradient {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+  
+  .card-gradient::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-secondary-500/10 opacity-0 transition-opacity duration-300;
+  }
+  
+  .card-gradient:hover::before {
+    @apply opacity-100;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-dark-950 mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-dark-500 max-w-2xl mx-auto;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-dark-200 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200;
+  }
+  
+  .select-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-dark-200 rounded-xl focus:border-primary-400 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 appearance-none cursor-pointer;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-700;
+  }
+  
+  .badge-accent {
+    @apply badge bg-accent-100 text-accent-700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ec761a, #dd5c10);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #dd5c10, #b74410);
+}
+
+/* Animation utilities */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 bg-clip-text text-transparent;
+}
+
+/* Hero background pattern */
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(236, 118, 26, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(34, 197, 102, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(217, 70, 239, 0.08) 0%, transparent 50%);
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2;
+}
+
