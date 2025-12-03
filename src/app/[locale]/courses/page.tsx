@@ -38,7 +38,7 @@ export default function CoursesPage() {
   // Show only relevant subjects in dropdown based on level
   const availableSubjects = selectedLevel === 'o-level' ? oLevelSubjects 
     : selectedLevel === 'a-level' ? aLevelSubjects 
-    : [...new Set([...oLevelSubjects, ...aLevelSubjects])];
+    : Array.from(new Set([...oLevelSubjects, ...aLevelSubjects]));
 
   // Get the display title based on locale
   const getDisplayTitle = (course: Course) => {
